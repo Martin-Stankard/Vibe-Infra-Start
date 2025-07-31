@@ -6,7 +6,9 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-    command: sh -c "npm init -y && npm install -g jsdoc && jsdoc -c jsdoc.json && tail -f /dev/null"
+      - ./jsdoc/jsdoc.json:/app/jsdoc.json:ro
+      - ./jsdoc/docs:/app/docs:ro
+    command: sh -c "npm init -y && npm install -g jsdoc && jsdoc ./docs -c jsdoc.json -d out && tail -f /dev/null"
     
 
   nginx:
