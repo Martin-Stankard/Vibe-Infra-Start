@@ -4,8 +4,18 @@
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles": true
+    }
+  },
   "opts": {
     "recurse": true,
-    "destination": "out"
+    "encoding": "utf8",
+    "destination": "out",
+    "verbose": true
   }
 }

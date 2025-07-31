@@ -8,7 +8,7 @@ services:
       - .:/app
       - ./jsdoc/jsdoc.json:/app/jsdoc.json:ro
       - ./jsdoc/docs:/app/docs:ro
-    command: sh -c "npm init -y && npm install -g jsdoc && jsdoc /app/docs -c jsdoc.json -d out && tail -f /dev/null"
+    command: sh -c "npm init -y && npm install -g jsdoc && jsdoc -r /app/docs -c jsdoc.json -d out && tail -f /dev/null"
     
 
   nginx:
