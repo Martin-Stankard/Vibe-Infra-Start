@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  jsdoc:
+    image: node:18
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm install -g jsdoc && jsdoc -c jsdoc.json && tail -f /dev/null"
+    # Assumes you have a jsdoc.json config in /app
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./out:/usr/share/nginx/html:ro
+    depends_on:
+      - jsdoc
