@@ -6,17 +6,12 @@
   },
   "plugins": ["plugins/markdown"],
   "templates": {
-    "cleverLinks": true,
-    "monospaceLinks": true,
-    "default": {
-      "outputSourceFiles": true
-    }
+    "cleverLinks": true  
   },
   "opts": {
     "recurse": true,
     "encoding": "utf8",
-    "destination": "out",
-    "verbose": true,
-    "template": "./jsdoc-templates/my-custom-template"
+    "verbose": true
+    
   }
 }
