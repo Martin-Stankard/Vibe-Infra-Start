@@ -6,8 +6,8 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-    command: sh -c "npm install -g jsdoc && jsdoc -c jsdoc.json && tail -f /dev/null"
-    # Assumes you have a jsdoc.json config in /app
+    command: sh -c "npm init -y && npm install -g jsdoc && jsdoc -c jsdoc.json && tail -f /dev/null"
+    
 
   nginx:
     image: nginx:alpine
