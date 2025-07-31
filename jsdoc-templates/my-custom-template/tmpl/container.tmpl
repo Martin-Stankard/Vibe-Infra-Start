@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{title}}</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .filename { font-weight: bold; color: #2a2; }
+    .foldername { font-style: italic; color: #22a; }
+    .function { margin-bottom: 1em; }
+  </style>
+</head>
+<body>
+  <h1>{{title}}</h1>
+  <div>
+    <span class="foldername">Folder: {{dirname filename}}</span><br>
+    <span class="filename">File: {{basename filename}}</span>
+  </div>
+  <hr>
+  {{#functions}}
+    <div class="function">
+      <h2>{{name}}</h2>
+      <p>{{description}}</p>
+      <pre>
+        Parameters:
+        {{#params}}
+          - {{name}} ({{type.names}})
+        {{/params}}
+        Returns: {{returns.type.names}}
+      </pre>
+    </div>
+  {{/functions}}
+</body>
+</html>

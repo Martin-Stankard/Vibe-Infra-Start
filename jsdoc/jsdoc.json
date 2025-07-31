@@ -16,6 +16,7 @@
     "recurse": true,
     "encoding": "utf8",
     "destination": "out",
-    "verbose": true
+    "verbose": true,
+    "template": "./jsdoc-templates/my-custom-template"
   }
 }
