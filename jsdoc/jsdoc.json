@@ -1,0 +1,22 @@
+{
+  "source": {
+    "include": ["src"],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles": true
+    }
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "./docs/",
+    "encoding": "utf8",
+    "tutorials": "./tutorials",
+    "readme": "./README.md"
+  }
+}
