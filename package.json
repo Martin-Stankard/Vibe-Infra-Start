@@ -1,0 +1,15 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Near term goal is to get this to a point of changing itself with user choose a,b,c d type ui (probably pop-ups driven from Jenkins, the orderly agent action framework caller :)\r Some kind of quickstart jsdoc setup, that is served to / fed / looped into / rag'd into an ollama llm, out to llm \"do stuff command line\" server. Also some kind test tracker frame work. Cheesy dev support gimmicky tools. \"Docker Compose Up\"",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
