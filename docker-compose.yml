@@ -23,15 +23,14 @@ services:
       - mongodb
 
   frontend:
-    image: node:18
-    working_dir: /app
-    volumes:
-      - ./frontend:/app
-      - ./jsdoc/docs:/app/jsdocdocs:ro
-    command: sh -c "npm install && npm start"
+    build: ./frontend
     ports:
       - "3000:3000"
     depends_on:
+      - backend
+
+volumes:
+  mongo_data:
       - backend
 
 volumes:
