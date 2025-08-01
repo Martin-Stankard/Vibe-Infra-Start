@@ -26,6 +26,7 @@ services:
       - "8082:8080"
     volumes:
       - jenkins_home:/var/jenkins_home
+      - ./security.groovy:/usr/share/jenkins/ref/init.groovy.d/security.groovy
     environment:
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
 
