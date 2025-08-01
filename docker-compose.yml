@@ -1,25 +1,7 @@
 version: '3.8'
 
 services:
-  jsdoc:
-    image: node:18
-    working_dir: /app
-    volumes:
-      - .:/app
-      - ./jsdoc/jsdoc.json:/app/jsdoc.json:ro
-      - ./jsdoc/docs:/app/docs:ro
-    command: sh -c "npm init -y && npm install -g jsdoc && jsdoc -r /app/docs -c jsdoc.json -d out && tail -f /dev/null"
-    
-
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "8081:80"
-    volumes:
-      - ./out:/usr/share/nginx/html:ro
-    depends_on:
-      - jsdoc
-
+ 
   mongodb:
     image: mongo:6
     ports:
@@ -32,7 +14,7 @@ services:
     working_dir: /app
     volumes:
       - ./backend:/app
-      - ./jsdoc/docs:/app/jsdocdocs:ro
+      
     environment:
       - MONGO_URL=mongodb://mongodb:27017/vibe
     ports:

@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Post Title 1",
+    "body": "Body of post.",
+    "category": "News",
+    "likes": 1,
+    "tags": ["news", "events"],
+    "date": "2024-06-01T00:00:00Z"
+  },
+  {
+    "title": "Post Title 2",
+    "body": "Body of post.",
+    "category": "Updates",
+    "likes": 2,
+    "tags": ["updates", "news"],
+    "date": "2024-06-02T00:00:00Z"
+  },
+  {
+    "title": "Post Title 3",
+    "body": "Body of post.",
+    "category": "Announcements",
+    "likes": 3,
+    "tags": ["announcements", "events"],
+    "date": "2024-06-03T00:00:00Z"
+  },
+  {
+    "title": "Post Title 4",
+    "body": "Body of post.",
+    "category": "News",
+    "likes": 4,
+    "tags": ["news", "updates"],
+    "date": "2024-06-04T00:00:00Z"
+  },
+  {
+    "title": "Post Title 5",
+    "body": "Body of post.",
+    "category": "Updates",
+    "likes": 5,
+    "tags": ["updates", "announcements"],
+    "date": "2024-06-05T00:00:00Z"
+  },
+  {
+    "title": "Post Title 6",
+    "body": "Body of post.",
+    "category": "Announcements",
+    "likes": 6,
+    "tags": ["announcements", "news"],
+    "date": "2024-06-06T00:00:00Z"
+  },
+  {
+    "title": "Post Title 7",
+    "body": "Body of post.",
+    "category": "News",
+    "likes": 7,
+    "tags": ["news", "events"],
+    "date": "2024-06-07T00:00:00Z"
+  },
+  {
+    "title": "Post Title 8",
+    "body": "Body of post.",
+    "category": "Updates",
+    "likes": 8,
+    "tags": ["updates", "news"],
+    "date": "2024-06-08T00:00:00Z"
+  }
+]
