@@ -4,10 +4,22 @@ Some kind of quickstart jsdoc setup, that is served to / fed / looped into / rag
 
 Stage 1 will be: 
 - jsdoc
-- jenkins
+-- some node app in jsdocs/docs
+
+- change jsdoc folder name to mainServer
+
+- thinking hard about a purely shell scripted,minumalist "middleware server container" as a fun docker toy to ?
+-- handle requests from front end, record in db + send to ollama
+-- awk and sed ollama traffic. listen and curl.
+-- similar to webui pipelines container
 - ollama
-- maybe a sqlite db for jenkins + rag (then a qdrant vector db and flowise/wildcat python rag just does a "folder of pdf's/.txt's preferrable" AND/OR .... THIS. jsdocs... .)
-- ~~some other node server to act as ollama's hands? Not now with Jenkins. middleware to sequential calls in jenkins~~
+- mongodb ...f it....might as well react and graphql cuz idk wtf / where this goes.
+
+- ~~jenkins~~
+
+
+- ~~maybe a sqlite db for jenkins + rag (then a qdrant vector db and flowise/wildcat python rag just does a "folder of pdf's/.txt's preferrable" AND/OR .... THIS. jsdocs... .)~~
+- some other node server to act as ollama's hands? Not now with Jenkins. middleware to sequential calls in jenkins~~
 - ~~possibly a rag ....idk without flowise atm....but should hit that db for jenkins sql db and another vec qdrant db...can't beat that flowise rag io.~~
  - pickle unit test famework, looking for use cases. 2.0 after the old junkins is humming.
 - ALL out to elkstack >> rag/llm?
