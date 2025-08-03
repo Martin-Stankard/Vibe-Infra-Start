@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+/**
+ * TabbedExcelView displays MongoDB records in a tabbed, Excel-like table view.
+ * Each tab represents a record, and clicking a tab shows the record's details.
+ *
+ * @component
+ * @param {Object[]} records - Array of record objects to display.
+ * @returns {JSX.Element} Tabbed table view of records.
+ */
 function TabbedExcelView({ records }) {
   const [active, setActive] = useState(0);
   if (!records.length) return <div>No records</div>;
@@ -26,6 +34,13 @@ function TabbedExcelView({ records }) {
   );
 }
 
+/**
+ * JsdocDocsView fetches and displays the contents of files from the jsdoc/docs directory.
+ * Each file is shown with its name and content in a preformatted block.
+ *
+ * @component
+ * @returns {JSX.Element} List of jsdoc/docs files and their contents.
+ */
 function JsdocDocsView() {
   const [docs, setDocs] = useState([]);
   useEffect(() => {
@@ -46,6 +61,14 @@ function JsdocDocsView() {
   );
 }
 
+/**
+ * App is the main React component for the frontend.
+ * It manages tabs for viewing MongoDB records and jsdoc/docs files.
+ * Fetches data from the backend and renders the appropriate view based on the selected tab.
+ *
+ * @component
+ * @returns {JSX.Element} Main application UI.
+ */
 function App() {
   const [records, setRecords] = useState([]);
   const [tab, setTab] = useState('records');

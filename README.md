@@ -3,18 +3,16 @@ Near term goal is to get this to a point of changing itself with user choose a,b
 Some kind of quickstart jsdoc setup, that is served to / fed / looped into / rag'd into an ollama llm, out to llm "do stuff command line" server. Also some kind test tracker frame work. Cheesy dev support gimmicky tools. "Docker Compose Up"
 
 Stage 1 will be: 
-- jsdoc
--- some node app in jsdocs/docs
 
-- change jsdoc folder name to mainServer
-
-- thinking hard about a purely shell scripted,minumalist "middleware server container" as a fun docker toy to ?
--- handle requests from front end, record in db + send to ollama
--- awk and sed ollama traffic. listen and curl.
--- similar to webui pipelines container
+- backend probably a mongo db client for a minute, then a node app with at least tabbed excel views of the db.
+-- always wanted to make an all in db, web components single page app... 
+- frontend?
+-- On load event, hit db and spa away...?
+-- home roll react lite?
+-- graphql? tasty with mongo and my wtf idk where this is going flow.
 - ollama
-- mongodb ...f it....might as well react and graphql cuz idk wtf / where this goes.
-
+- mongodb 
+- ~~jsdoc...maybe come back, AND will be hitting everything with jsdoc parameters no matter what~~
 - ~~jenkins~~
 
 
