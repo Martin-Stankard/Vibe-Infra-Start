@@ -1,34 +1,26 @@
 version: '3.8'
 
 services:
- 
   mongodb:
-    image: mongo:6
+    image: mongo:latest
+    container_name: mongodb_server
     ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-
-  backend:
-    image: node:18
-    working_dir: /app
-    volumes:
-      - ./backend:/app
-      
+      - "27017:27017" # Map host port 27017 to container port 27017
     environment:
-      - MONGO_URL=mongodb://mongodb:27017/vibe
-    ports:
-      - "3001:3001"
-    depends_on:
-      - mongodb
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongodb_data:/data/db # Persist data in a named volume
 
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
+  mongodb_client:
+    image: mongo:latest
+    container_name: mongodb_client
     depends_on:
-      - backend
+      - mongodb # Ensure mongodb server starts before the client
+    command: mongosh --host mongodb --authenticationDatabase admin -u admin -p password # Connect to the mongodb service
+    # Alternatively, for interactive shell:
+    # command: bash
+    # entrypoint: mongosh --host mongodb --authenticationDatabase admin -u admin -p password
 
 volumes:
-  mongo_data: {}
-      - backend
+  mongodb_data:
