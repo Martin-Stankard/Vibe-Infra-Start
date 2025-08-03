@@ -10,7 +10,7 @@ services:
           - "27017:27017"
 
     mongo-express:
-        image: mongo-expres
+        image: mongo-express
         depends_on:
             - mongo
         ports:
