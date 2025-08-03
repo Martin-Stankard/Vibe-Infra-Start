@@ -3,24 +3,29 @@ version: '3.8'
 services:
   mongodb:
     image: mongo:latest
-    container_name: mongodb_server
+    container_name: my-mongodb-server
     ports:
-      - "27017:27017" # Map host port 27017 to container port 27017
+      - "27017:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
-      - mongodb_data:/data/db # Persist data in a named volume
+      - mongo_data:/data/db
+    restart: unless-stopped
 
-  mongodb_client:
-    image: mongo:latest
-    container_name: mongodb_client
+  mongo-client:
+    image: mongo-express:latest # Or any other MongoDB client image
+    container_name: my-mongodb-client
+    ports:
+      - "8081:8081" # Example for mongo-express, adjust for other clients
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb # Connect to the 'mongodb' service
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
     depends_on:
-      - mongodb # Ensure mongodb server starts before the client
-    command: mongosh --host mongodb --authenticationDatabase admin -u admin -p password # Connect to the mongodb service
-    # Alternatively, for interactive shell:
-    # command: bash
-    # entrypoint: mongosh --host mongodb --authenticationDatabase admin -u admin -p password
+      - mongodb # Ensure MongoDB starts before the client
+    restart: unless-stopped
 
 volumes:
-  mongodb_data:
+  mongo_data:
+    driver: local
