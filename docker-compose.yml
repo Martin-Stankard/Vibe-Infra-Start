@@ -6,25 +6,11 @@ services:
         environment:
           MONGO_INITDB_ROOT_USERNAME: admin
           MONGO_INITDB_ROOT_PASSWORD: password
-          MONGO_INITDB_DATABASE: project
-        volumes:
-          - ./mongodb/001test.json:/tmp/001test.json:ro
-          - ./mongodb/init.sh:/docker-entrypoint-initdb.d/init.sh:ro
         ports:
           - "27017:27017"
 
     mongo-express:
-        image: mongo-express
-        environment:
-            ME_CONFIG_MONGODB_SERVER: mongo
-            ME_CONFIG_MONGODB_PORT: 27017
-            ME_CONFIG_MONGODB_ENABLE_ADMIN: true
-            ME_CONFIG_MONGODB_AUTH_DATABASE: admin
-            ME_CONFIG_MONGODB_AUTH_USERNAME: admin
-            ME_CONFIG_MONGODB_AUTH_PASSWORD: password
-            ME_CONFIG_BASICAUTH_USERNAME: admin
-            ME_CONFIG_BASICAUTH_PASSWORD: password
-            ME_CONFIG_MONGODB_URL: mongodb://admin:password@mongo:27017/admin 
+        image: mongo-expres
         depends_on:
             - mongo
         ports:
