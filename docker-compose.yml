@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mongodb:
-    image: mongo:latest
+    image: mongo:6
     container_name: mongodb-server-container
     ports:
       - "27017:27017"
@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
 
   mongo-client:
-    image: mongo-express:latest # Or any other MongoDB client image
+    image: mongo-express
     container_name: mongo-client-container
     ports:
       - "8081:8081" # Example for mongo-express, adjust for other clients
