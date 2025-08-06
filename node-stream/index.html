@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Streaming Hello World & MongoDB CRUD</title>
+  <script>
+    window.onload = function() {
+      const stream = new EventSource('/stream');
+      stream.onmessage = function(e) {
+        document.getElementById('stream').textContent = e.data;
+      };
+
+      document.getElementById('create').onclick = async function() {
+        const res = await fetch('/create', { method: 'POST' });
+        document.getElementById('result').textContent = await res.text();
+      };
+      document.getElementById('read').onclick = async function() {
+        const res = await fetch('/read');
+        document.getElementById('result').textContent = await res.text();
+      };
+      document.getElementById('write').onclick = async function() {
+        const res = await fetch('/write', { method: 'POST' });
+        document.getElementById('result').textContent = await res.text();
+      };
+      document.getElementById('delete').onclick = async function() {
+        const res = await fetch('/delete', { method: 'POST' });
+        document.getElementById('result').textContent = await res.text();
+      };
+    };
+  </script>
+</head>
+<body>
+  <h1 id="stream">Loading...</h1>
+  <button id="create">Create</button>
+  <button id="read">Read</button>
+  <button id="write">Write</button>
+  <button id="delete">Delete</button>
+  <pre id="result"></pre>
+</body>
+</html>
