@@ -25,6 +25,12 @@ services:
         ports:
           - "8888:8081"
 
+    ollama:
+        image: ollama/ollama
+        ports:
+          - "8078:8078"
+        restart: unless-stopped
+
     node-stream:
         build: ./node-stream
         ports:
