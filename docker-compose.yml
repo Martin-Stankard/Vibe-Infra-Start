@@ -22,7 +22,7 @@ services:
         depends_on:
             - mongo
         ports:
-          - "8888:8081"
+          - "8081:8081"
 
     open-webui:
       image: ghcr.io/open-webui/open-webui:latest
