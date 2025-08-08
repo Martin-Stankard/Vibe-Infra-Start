@@ -17,7 +17,7 @@ services:
         image: mongo-express
         container_name: THIS-mongo-express
         environment:
-            ME_CONFIG_MONGODB_SERVER: mongo
+            ME_CONFIG_MONGODB_SERVER: mongodb
             ME_CONFIG_MONGODB_PORT: 27017
             ME_CONFIG_BASICAUTH_USERNAME: "" # Set username to empty string to disable basic auth
             ME_CONFIG_BASICAUTH_PASSWORD: "" # Set password to empty string to disable basic auth
@@ -74,7 +74,7 @@ services:
         environment:
           MONGO_URL: mongodb://admin:password@mongo:27017/admin
         depends_on:
-          - mongo
+          - mongodb
 
 networks:
   ollama-docker:
