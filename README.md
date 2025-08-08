@@ -1,7 +1,9 @@
 # Vibe-Infra-Start
 Near term goal is to get this to a point of changing itself with user choose a,b,c d type ui 
 
-TODO: debug mongo-frontend.
+TODO: debug mongo-frontend. 
+- going through a router v. graphql v. doesn't matter until I start using db in two "different" ways besides my 12 ish generic buttons I need to debug.
+- need to debug mongo express and docker compose envs
 - Add 'get a list of all databases/records/yada' button
 - clean up 'create new' 3x
 - tabs, header ...idk. simple for now.
