@@ -3,81 +3,14 @@ services:
     mongo:
         image: mongo:6
         environment:
-          MONGO_INITDB_ROOT_USERNAME: admin
-          MONGO_INITDB_ROOT_PASSWORD: password
-
-          //
-
-          MONGO_URI,Full MongoDB connection string for client applications,Client-Side/Application Connection,
-MONGO_INITDB_ROOT_USERNAME,Username for the root user to be created on container initialization,Official Docker Image Initialization,
-MONGO_INITDB_ROOT_PASSWORD,Password for the root user to be created on container initialization,Official Docker Image Initialization,
-MONGO_INITDB_DATABASE,Database name to be created on container initialization,Official Docker Image Initialization,
-AWS_ACCESS_KEY_ID,AWS Access Key ID for MONGODB-AWS authentication,MongoDB Tools/Drivers with AWS IAM/Docker,
-AWS_SECRET_ACCESS_KEY,AWS Secret Access Key for MONGODB-AWS authentication,MongoDB Tools/Drivers with AWS IAM/Docker,
-AWS_SESSION_TOKEN,AWS Session Token for MONGODB-AWS authentication,MongoDB Tools/Drivers with AWS IAM/Docker,
-MONGODB_LOG_ALL,Default severity level for driver logging components,Node.js Driver Logging,
-MONGODB_LOG_COMMAND,Logs all commands sent to the server for driver logging,Node.js Driver Logging,
-MONGODB_LOG_TOPOLOGY,Logs any changes to the cluster topology for driver logging,Node.js Driver Logging,
-MONGODB_LOG_SERVER_SELECTION,Logs the server selection process for driver logging,Node.js Driver Logging,
-MONGODB_LOG_CONNECTION,Logs all connection pool events for driver logging,Node.js Driver Logging,
-MONGODB_LOG_CLIENT,Logs all client events for driver logging,Node.js Driver Logging,
-MONGODB_USERNAME,MongoDB username (for migration, non-root user),Google Cloud Firestore with MongoDB Compatibility Migration,mongouser (example),
-MONGODB_PASSWORD,MongoDB password (for migration, non-root user),Google Cloud Firestore with MongoDB Compatibility Migration,mongopassword (example),
-MONGODB_IP_ADDRESS,IP address of the MongoDB server (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,10.0.0.1:27017 (example),
-MONGODB_DATABASE_NAME,Database name (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,source_db (example),
-REPLICA_SET,Name of the replica set (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,rs0 (example),
-MONGODB_HOST_ADDRESS,Hostname of the MongoDB server conforming to SRV connection format (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,host.cosmos.azure.example.com (example),
-BASTION_IP_ADDRESS,IP address of the bastion host for SSH connection (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,30.0.0.1 (example),
-BASTION_SSH_PORT,SSH port on the bastion host (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,22 (example),
-BASTION_SSH_USERNAME,Username for the SSH connection to the bastion host (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,
-BASTION_SSH_PRIVATE_KEY,Full payload of the SSH private key (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,
-PRIVATE_CONNECTION_NAME,ID of the private connectivity configuration (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,pc_name (example),
-SRC_CONNECTION_PROFILE_NAME,Human-readable name for Datastream connection profile of the MongoDB-compatible source database (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,source-mongo-profile (example),
-DST_CONNECTION_PROFILE_NAME,Human-readable name for Datastream connection profile for the destination Cloud Storage bucket (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,destination-gcs-profile (example),
-DATASTREAM_NAME,Human-readable name of a Datastream stream that will transfer the data (for migration),Google Cloud Firestore with MongoDB Compatibility Migration,mongo-to-gcs-stream (example),
-MONGODB_MOUNTED_CONF_DIR,Directory for custom configuration files (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},${MONGODB_VOLUME_DIR}/conf
-MONGODB_INIT_RETRY_ATTEMPTS,Maximum retries for checking the service initialization status (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},7
-MONGODB_INIT_RETRY_DELAY,Time (in seconds) to wait between retries for checking the service initialization status (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},5
-MONGODB_PORT_NUMBER,MongoDB port (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},$MONGODB_DEFAULT_PORT_NUMBER
-MONGODB_ENABLE_MAJORITY_READ,Enable majority read in MongoDB operations (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},true
-MONGODB_DEFAULT_ENABLE_MAJORITY_READ,Enable majority read in MongoDB operations set at build time (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},true
-MONGODB_EXTRA_FLAGS,Extra flags for MongoDB initialization (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_ENABLE_NUMACTL,Execute commands using numactl (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},false
-MONGODB_SHELL_EXTRA_FLAGS,Extra flags when using the mongodb client during initialization (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_ADVERTISED_HOSTNAME,Hostname to use for advertising the MongoDB service (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_ADVERTISE_IP,Whether advertised hostname is set to container ip (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},false
-MONGODB_ADVERTISED_PORT_NUMBER,MongoDB advertised port number (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_DISABLE_JAVASCRIPT,Disable MongoDB server-side JavaScript execution (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},no
-MONGODB_ENABLE_JOURNAL,Enable MongoDB journal (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_DISABLE_SYSTEM_LOG,Disable MongoDB daemon system log (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_ENABLE_DIRECTORY_PER_DB,Use a separate folder for storing each database data (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_ENABLE_IPV6,Use IPv6 for database connections (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_SYSTEM_LOG_VERBOSITY,MongoDB daemon log level (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_ROOT_USER,User name for the MongoDB root user (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},root
-MONGODB_ROOT_PASSWORD,Password for the MongoDB root user (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_USERNAME,User to generate at initialization time (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_PASSWORD,Password for the non-root user specified in MONGODB_USERNAME (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_DATABASE,Name of the database to create at initialization time (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_METRICS_USERNAME,User used for metrics collection (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_METRICS_PASSWORD,Password for the non-root user specified in MONGODB_METRICS_USERNAME (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_EXTRA_USERNAMES,Comma or semicolon separated list of extra users to be created (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_EXTRA_PASSWORDS,Comma or semicolon separated list of passwords for extra users (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_EXTRA_DATABASES,Comma or semicolon separated list of databases to create for extra users (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-ALLOW_EMPTY_PASSWORD,Permit accessing MongoDB without setting any password (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},no
-MONGODB_REPLICA_SET_MODE,MongoDB replica set mode (primary, secondary, arbiter) (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_REPLICA_SET_NAME,Name of the MongoDB replica set (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},$MONGODB_DEFAULT_REPLICA_SET_NAME
-MONGODB_REPLICA_SET_KEY,MongoDB replica set key (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_INITIAL_PRIMARY_HOST,Hostname of the replica set primary node (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_INITIAL_PRIMARY_PORT_NUMBER,Port of the replica set primary node (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},27017
-MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD,Primary node root user password (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},nil
-MONGODB_INITIAL_PRIMARY_ROOT_USER,Primary node root username (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},root
-MONGODB_SET_SECONDARY_OK,Mark node as readable (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},no
-MONGODB_DISABLE_ENFORCE_AUTH,Disable MongoDB authentication enforcement (Docker),{Link: Docker Hub https://hub.docker.com/r/bitnami/mongodb},false
-
-
-
+          ALLOW_EMPTY_PASSWORD  : "yes"
+          MONGODB_INITDB_DATABASE: admin
+          
         ports:
           - "27017:27017"
+
+        volumes:
+          - ../test-zero:/data/db
 
     mongo-express:
         image: mongo-express
@@ -85,50 +18,7 @@ MONGODB_DISABLE_ENFORCE_AUTH,Disable MongoDB authentication enforcement (Docker)
             ME_CONFIG_MONGODB_SERVER: mongo
             ME_CONFIG_MONGODB_PORT: 27017
             ME_CONFIG_MONGODB_ENABLE_ADMIN: true
-            ME_CONFIG_MONGODB_AUTH_DATABASE: admin  
-            ME_CONFIG_MONGODB_AUTH_USERNAME: admin
-            ME_CONFIG_MONGODB_AUTH_PASSWORD: password
-            ME_CONFIG_BASICAUTH_USERNAME: admin
-            ME_CONFIG_BASICAUTH_PASSWORD: password
-            // shameless git commit of knowledge
-            ME_CONFIG_MONGODB_SERVER,MongoDB host or IP address (e.g., localhost or mongo). If it's a replica set, use a comma-delimited list.,
-ME_CONFIG_MONGODB_PORT,MongoDB port,27017
-ME_CONFIG_MONGODB_URL,Full MongoDB connection string (e.g., mongodb://admin:pass@localhost:27017/db?ssl=false),
-ME_CONFIG_MONGODB_URL_FILE,File version of ME_CONFIG_MONGODB_URL,
-ME_CONFIG_MONGODB_ALLOW_DISK_USE,Removes the 100MB RAM limit for aggregation pipeline stages,false
-ME_CONFIG_MONGODB_TLS,Enables TLS client certificate usage,false
-ME_CONFIG_MONGODB_TLS_ALLOW_CERTS,Validates mongod server certificate against CA,true
-ME_CONFIG_MONGODB_TLS_CA_FILE,Path to the CA certificate file,
-ME_CONFIG_MONGODB_TLS_CERT_FILE,Path to the TLS client certificate file,
-ME_CONFIG_MONGODB_TLS_CERT_KEY_FILE,Path to the TLS client certificate key file,
-ME_CONFIG_MONGODB_TLS_CERT_KEY_FILE_PASSWORD,TLS client certificate key file password,
-ME_CONFIG_MONGODB_AWS_DOCUMENTDB,Enables AWS DocumentDB compatibility (experimental),false
-ME_CONFIG_MONGODB_SSLVALIDATE,Validates mongod server certificate against CA,true
-ME_CONFIG_MONGODB_ENABLE_ADMIN,Enables administrator access (send strings: "true" or "false"),
-ME_CONFIG_MONGODB_ADMINUSERNAME,Administrator username,
-ME_CONFIG_MONGODB_ADMINPASSWORD,Administrator password,
-ME_CONFIG_MONGODB_AUTH_DATABASE,Database name (only needed if ME_CONFIG_MONGODB_ENABLE_ADMIN is "false"),
-ME_CONFIG_MONGODB_AUTH_USERNAME,Database username (only needed if ME_CONFIG_MONGODB_ENABLE_ADMIN is "false"),admin
-ME_CONFIG_MONGODB_AUTH_PASSWORD,Database password (only needed if ME_CONFIG_MONGODB_ENABLE_ADMIN is "false"),pass
-ME_CONFIG_BASICAUTH_ENABLED,Enables basic authentication (send strings: "true" or "false"),false
-ME_CONFIG_BASICAUTH_USERNAME,Mongo Express web login name,admin (if not defined)
-ME_CONFIG_BASICAUTH_USERNAME_FILE,File version of ME_CONFIG_BASICAUTH_USERNAME,,
-ME_CONFIG_BASICAUTH_PASSWORD,Mongo Express web login password,pass (if not defined),
-ME_CONFIG_BASICAUTH_PASSWORD_FILE,File version of ME_CONFIG_BASICAUTH_PASSWORD,,
-ME_CONFIG_SITE_BASEURL,Sets the Express baseUrl for mounting at a subdirectory (remember to include leading and trailing slashes),
-ME_CONFIG_SITE_COOKIESECRET,String used by cookie-parser middleware to sign cookies,
-ME_CONFIG_SITE_SESSIONSECRET,String used by express-session middleware to sign the session ID cookie,sessionsecret
-ME_CONFIG_SITE_SSL_ENABLED,Enables SSL,false
-ME_CONFIG_SITE_SSL_CRT_PATH,Path to the SSL certificate file,
-ME_CONFIG_SITE_SSL_KEY_PATH,Path to the SSL key file,,
-ME_CONFIG_SITE_GRIDFS_ENABLED,Enables GridFS for managing uploaded files,false,
-VCAP_APP_HOST,Address that Mongo Express will listen on for incoming connections,localhost
-PORT,Port that Mongo Express will run on,8081
-ME_CONFIG_OPTIONS_FULLWIDTH_LAYOUT,Uses an alternative page layout with full window width,false
-ME_CONFIG_OPTIONS_PERSIST_EDIT_MODE,Remains on the same page after clicking "Save",false
-ME_CONFIG_OPTIONS_NO_DELETE,Hides delete components,false
-ME_CONFIG_OPTIONS_READONLY,Hides write components,false
-ME_CONFIG_REQUEST_SIZE,Configures the maximum MongoDB update payload size,100kb
+            
 
 
         depends_on:
@@ -136,44 +26,46 @@ ME_CONFIG_REQUEST_SIZE,Configures the maximum MongoDB update payload size,100kb
         ports:
           - "8081:8081"
 
-    open-webui:
-      image: ghcr.io/open-webui/open-webui:latest
-      container_name: open-webui
-      volumes:
-      - open-webui:/app/backend/data
-      pull_policy: always
-      depends_on:
-      - ollama
-      ports:
-      - 8080:8080
-      environment: 
-      - OLLAMA_BASE_URLS=http://host.docker.internal:11434
-      - WEBUI_AUTH=False
-      - WEBUI_SECRET_KEY=123456
-      networks:
-      - ollama-docker   
 
-    ollama:
-      image: ollama/ollama:latest
-      container_name: ollama
-      ports:
-      - 11434:11434
-      volumes:
-      - ollama:/root/.ollama
-      pull_policy: always
-      tty: true
-      restart: always
-      environment:
-      - OLLAMA_KEEP_ALIVE=24h
-      networks:
-      - ollama-docker
-      deploy:
-        resources:
-          reservations:
-            devices:
-              - driver: nvidia
-                count: 1
-                capabilities: [gpu]
+    # open-webui:
+    #   image: ghcr.io/open-webui/open-webui:latest
+    #   container_name: open-webui
+    #   volumes:
+    #   - open-webui:/app/backend/data
+    #   pull_policy: always
+    #   depends_on:
+    #   - ollama
+    #   ports:
+    #   - 8080:8080
+    #   environment: 
+    #   - OLLAMA_BASE_URLS=http://host.docker.internal:11434
+    #   - WEBUI_AUTH=False
+    #   - WEBUI_SECRET_KEY=123456
+    #   networks:
+    #   - ollama-docker   
+
+
+    # ollama:
+    #   image: ollama/ollama:latest
+    #   container_name: ollama
+    #   ports:
+    #   - 11434:11434
+    #   volumes:
+    #   - ollama:/root/.ollama
+    #   pull_policy: always
+    #   tty: true
+    #   restart: always
+    #   environment:
+    #   - OLLAMA_KEEP_ALIVE=24h
+    #   networks:
+    #   - ollama-docker
+    #   deploy:
+    #     resources:
+    #       reservations:
+    #         devices:
+    #           - driver: nvidia
+    #             count: 1
+    #             capabilities: [gpu]
 
     node-stream:
         build: ./node-stream
