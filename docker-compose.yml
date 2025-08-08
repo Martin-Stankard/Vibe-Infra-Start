@@ -1,7 +1,8 @@
 
 services:
-    mongo:
+    mongodb:
         image: mongo:6
+        container_name: THIS-mongodb
         environment:
           ALLOW_EMPTY_PASSWORD  : "yes"
           MONGODB_INITDB_DATABASE: admin
@@ -10,19 +11,18 @@ services:
           - "27017:27017"
 
         volumes:
-          - ../test-zero:/data/db
+          - ../test-zero:/data/db #immediate goal is save here, my local folder nextdoor, from mongo-express and node-stream
 
     mongo-express:
         image: mongo-express
+        container_name: THIS-mongo-express
         environment:
             ME_CONFIG_MONGODB_SERVER: mongo
             ME_CONFIG_MONGODB_PORT: 27017
-            ME_CONFIG_MONGODB_ENABLE_ADMIN: true
-            
-
-
+            ME_CONFIG_BASICAUTH_USERNAME: "" # Set username to empty string to disable basic auth
+            ME_CONFIG_BASICAUTH_PASSWORD: "" # Set password to empty string to disable basic auth
         depends_on:
-            - mongo
+            - mongodb
         ports:
           - "8081:8081"
 
