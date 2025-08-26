@@ -9,23 +9,8 @@ services:
     #   MONGO_INITDB_ROOT_PASSWORD: secret
     # - MONGO_INITDB_ROOT_USERNAME=
       env_file: 
-        - ./env/mongo.env
-
-        
-    mongo-express:
-        image: mongo-express
-        container_name: THIS-mongo-express
-        environment:
-            ME_CONFIG_MONGODB_SERVER: mongodb
-            ME_CONFIG_MONGODB_PORT: 27017
-            ME_CONFIG_BASICAUTH_USERNAME: "" # Set username to empty string to disable basic auth
-            ME_CONFIG_BASICAUTH_PASSWORD: "" # Set password to empty string to disable basic auth
-        depends_on:
-            - mongodb
-        ports:
-          - "8081:8081"
-
-
+        - ./env/mongo.env    
+    
     # open-webui:
     #   image: ghcr.io/open-webui/open-webui:latest
     #   container_name: open-webui
