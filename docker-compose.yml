@@ -1,18 +1,17 @@
 
 services:
     mongodb:
-        image: mongo:6
-        container_name: THIS-mongodb
-        environment:
-          ALLOW_EMPTY_PASSWORD  : "yes"
-          MONGODB_INITDB_DATABASE: admin
-          
-        ports:
-          - "27017:27017"
+      image: 'mongo'
+      volumes: 
+      - ../test-zero:/data/db
+    # environment: 
+    #   MONGO_INITDB_ROOT_USERNAME: 
+    #   MONGO_INITDB_ROOT_PASSWORD: secret
+    # - MONGO_INITDB_ROOT_USERNAME=
+      env_file: 
+        - ./env/mongo.env
 
-        volumes:
-          - ../test-zero:/data/db #immediate goal is save here, my local folder nextdoor, from mongo-express and node-stream
-
+        
     mongo-express:
         image: mongo-express
         container_name: THIS-mongo-express
